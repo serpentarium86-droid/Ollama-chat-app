@@ -30,11 +30,12 @@ jobs:
 
     - name: Build APK
       run: |
+        cd kivy
         buildozer -v android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: ollama-chat-apk
-        path: bin/*.apk
+        path: kivy/bin/*.apk
         retention-days: 30
