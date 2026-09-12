@@ -17,7 +17,7 @@ class LibffiRecipe(Recipe):
     version = 'v3.4.2'
     url = 'https://github.com/libffi/libffi/archive/{version}.tar.gz'
 
-    patches = ['remove-version-info.patch']
+    patches = []
 
     built_libraries = {'libffi.so': '.libs'}
 
