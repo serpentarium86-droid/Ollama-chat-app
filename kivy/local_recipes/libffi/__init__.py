@@ -25,11 +25,11 @@ class LibffiRecipe(Recipe):
         env = self.get_recipe_env(arch)
         with current_directory(self.get_build_dir(arch.arch)):
             if not exists('configure'):
-                #    shprint(sh.Command('./autogen.sh'), _env=env)
-                #    shprint(sh.Command('autoreconf'), '-vif', _env=env)
-                shprint(sh.Command('wget'),
-                        'https://raw.githubusercontent.com/libffi/libffi/v3.4.2/configure',
-                        '-O', 'configure', _env=env)
+                shprint(sh.Command('sed'),
+                        '-i',
+                        '/LT_SYS_SYMBOL_USCORE/d',
+                        'configure.ac', _env=env)
+                shprint(sh.Command('autoreconf'), '-vif', _env=env)
             shprint(sh.Command('./configure'),
                     '--host=' + arch.command_prefix,
                     '--prefix=' + self.get_build_dir(arch.arch),
