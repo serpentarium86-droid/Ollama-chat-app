@@ -1,6 +1,6 @@
 # python core modules
 import os
-os.environ['KIVY_GL_BACKEND'] = 'sdl2'
+os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 import sys
 import re
 from threading import Thread
